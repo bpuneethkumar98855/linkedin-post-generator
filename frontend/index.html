@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Post Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="darkmode" >
+            <button class="dark">🌙</button>
+        </div>
+        <div class="mainheading">
+            <h1><i class="fab fa-linkedin"></i> LinkedIn Post Generator</h1>
+        </div>
+        <div>
+            <div class="role">
+                <label for="">👔Your Role</label>
+                <select name="" class="roleoptions" id="role">
+                    <option value="">--select--</option>
+                    <option value="Student">Student</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Intern">Intern</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="tone">
+                <label for="">🗣️Tone</label>
+                <select name="" class="toneoptions" id="tone">
+                    <option value="">--select--</option>
+                    <option value="Professsional">Professsional</option>
+                    <option value="Greatful">Greatful</option>
+                    <option value="User friendly">User friendly</option>
+                    <option value="Informative">Informative</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="purpose">
+                <label for="">📝Post Purpose</label>
+                <select name="" class="purposeoptions" id="purpose">
+                    <option value="">--select--</option>
+                    <option value="Prjoect progress">Prjoect progress</option>
+                    <option value="Learning progress">Learning progress</option>
+                    <option value="Acheievement">Acheievement</option>
+                    <option value="Milestone">Milestone</option>
+                    <option value="Gratitude">Gratitude</option>
+                    <option value="Tech news">Tech news</option>
+                    <option value="Collaboration">Collaboration</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="highlights">
+                <label for="">🔑Key Highlights of the post</label>
+                <textarea id="highlights" rows="4" placeholder="Enter key highlights..."></textarea>
+            </div>
+            <div class="challenges">
+                <label for="">🧗Insights/Learnings</label>
+                <textarea id="insights" rows="4" placeholder="Challenges you faced while building the project"></textarea>
+            </div>
+            <div class="gratitude">
+                <label for="">🤝Gratitude</label>
+                <input type="text" placeholder="People you'd like to thanks or mention " id="gratitude">
+            </div>
+            <div class="tags">
+                <label for="">🏷️Tags</label>
+                <input type="text" placeholder="Tags individual or organizations" id="tags">
+            </div>
+            <div class="links">
+                <label for="">🔗Resources</label>
+                <textarea id="resources" rows="4" placeholder="Links or filenames you want to include"></textarea>
+            </div>
+            <div class="reflections">
+                <label for="">❓Reflections</label>
+                <textarea id="reflection" rows="4" placeholder="Personal advice or any questions"></textarea>
+            </div>
+            <div class="calltoaction">
+                <label for="">⬇️Call to Action </label>
+                <textarea id="cta" rows="4" placeholder="eg:Check out the full post here,"></textarea>
+            </div>
+            <div class="hastags">
+                <label for="">#️⃣Hashtags</label>
+                <input type="text" placeholder="eg:#AI#Careerjourney#webdevelopment" id="hashtags">
+            </div>
+            <div class="extras">
+                <label for="">➕Extras</label>
+                <textarea id="extras" rows="4" placeholder="Anything extra you'd like to share?"></textarea>
+            </div>
+            <div class="generatebtn">
+                <button onclick="getPost()">Generate Post</button>
+            </div>
+        </div>    
+        <div class="maincontainer2">
+            <div class="generatedpost">
+                <h1>Your LinkedIn Post:</h1>
+                <p class="text"></p>
+            </div>
+        </div>
+        <button id="copyBtn">📋 Copy Post</button>
+        <p id="copyMsg" style="font-size: 14px; color: green; display: none;">Copied to clipboard!</p>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

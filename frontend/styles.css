@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: whitesmoke;
+    padding:30px 10px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: background-color 0.8s ease, color 0.8s ease;
+}
+.darkmode{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 10px 20px;
+}
+.darkmode button{
+    border-radius: 50%;
+    background-color: rgb(21, 20, 20);
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+body.dark-mode .maincontainer{
+    background-color: #1e1e1e;
+    border-color: #333;
+    box-shadow:
+        -4px 0 8px -4px rgba(234, 231, 231, 0.7), 
+         4px 0 8px -4px rgba(234, 231, 231, 0.7), 
+        -4px 0 8px -4px rgba(234, 231, 231, 0.7);
+}
+body.dark-mode .maincontainer2{
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+body.dark-mode .generatedpost{
+    background-color: #2c2c2c;
+}
+body.dark-mode .text{
+    color: white;
+}
+
+body.dark-mode textarea {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #555;
+    outline: none;
+}
+body.dark-mode textarea:focus {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid rgb(10, 102, 194); /* LinkedIn Blue for focused border */
+    box-shadow: none;
+}
+
+body.dark-mode input,
+body.dark-mode .roleoptions,
+body.dark-mode .toneoptions,
+body.dark-mode .purposeoptions{
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+body.dark-mode .dark {
+    background-color: #fefdfd;
+    color: #fff;
+}
+.maincontainer{
+    width: 100%;
+    max-width: 130vmin;
+    height: auto;
+    background-color: white;
+    text-align: center;
+    border: 1px solid rgb(141, 138, 138);
+    border-radius: 0.7rem;
+    box-shadow:
+    8px 4px 8px -4px rgba(211, 211, 211, 0.7), 
+    4px 0 8px -4px rgba(211, 211, 211, 0.6), 
+   -4px 0 8px -4px rgba(211, 211, 211, 0.6);
+}
+.mainheading{
+    color: rgb(10, 102, 194);
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.role ,.tone,.purpose{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.role label,.tone label,.purpose label{
+    padding: 10px 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.roleoptions,.toneoptions,.purposeoptions{
+    padding: 13px 20px;
+    margin: 0px 25px;
+    background-color:rgb(217, 217, 217) ;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: #121212;
+}
+.highlights,.challenges,.gratitude,.tags,.links,.reflections,.calltoaction,.hastags,.extras{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.highlights label,.challenges label,.gratitude label,.tags label,.links label,.reflections label,.calltoaction label,.hastags label,.extras label{
+    padding: 10px 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.gratitude input,.tags input,.hastags input{
+    padding: 13px 20px;
+    margin: 0px 25px;
+    border-radius: 8px;
+    border: 0.5px solid rgb(189, 188, 188);
+    background-color: rgb(229, 238, 248);
+}
+.reflections textarea,
+.extras textarea ,
+.challenges textarea,
+.links textarea,
+.calltoaction textarea{
+    padding: 13px 20px;
+    margin: 0px 25px;
+    border-radius: 8px;
+    border: 0.5px solid rgb(189, 188, 188);
+    background-color: rgb(229, 238, 248);
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.highlights textarea {
+    padding: 13px 20px;
+    margin: 0px 25px;
+    border-radius: 8px;
+    border: 0.5px solid rgb(189, 188, 188);
+    background-color: rgb(229, 238, 248);
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.generatebtn {
+    display: flex;
+    justify-content: center;
+}
+
+.generatebtn button{
+    padding: 13px 20px;
+    width: 100%;
+    max-width: 122vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 25px;
+    color: white;
+    background-color: rgb(10, 102, 194) ;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.generatebtn button:hover{
+    background-color:rgb(4, 68, 132);
+}
+.maincontainer2{
+    display: flex;
+    justify-content: center;
+}
+.generatedpost{
+    width: 100%;
+    max-width: 122vmin;
+    height: auto;
+    background-color: rgb(229, 238, 248);
+    border: none;
+    border-radius: 0.7rem;
+    margin: 20px 25px;
+    border-left: 4px solid rgb(10, 102, 194);
+    color: rgb(10, 102, 194);
+    padding: 25px 25px;
+}
+.generatedpost h1{
+    text-align: left;
+    font-size: 22px;
+    padding-left: 8px;
+}
+.text{
+    padding: 25px 10px;
+    text-align: left;
+    white-space: pre-wrap;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 15px;
+    color: #121212;
+}
+#copyBtn {
+    padding: 10px 20px;
+    background-color: rgb(10, 102, 194);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 20px 0px;
+}
+
+#copyBtn:hover {
+    background-color: rgb(4, 68, 132);
+}
+/* 🩺 Specific Fix for All Input Fields in Dark Mode */
+body.dark-mode #role,
+body.dark-mode #tone,
+body.dark-mode #purpose,
+body.dark-mode #highlights,
+body.dark-mode #insights,
+body.dark-mode #gratitude,
+body.dark-mode #tags,
+body.dark-mode #resources,
+body.dark-mode #reflection,
+body.dark-mode #cta,
+body.dark-mode #hashtags,
+body.dark-mode #extras {
+    background-color: #2c2c2c !important;
+    color: white !important;
+    border: 1px solid #555 !important;
+    box-shadow: none !important;
+}
+
+/* Autofill fix */
+body.dark-mode input:-webkit-autofill,
+body.dark-mode textarea:-webkit-autofill {
+    background-color: #2c2c2c !important;
+    color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+    box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+}
+
+@media(max-width:425px){
+    .mainheading{
+        font-size: 12.5px;
+    }
+}
