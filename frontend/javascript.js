@@ -6,7 +6,7 @@ const API_BASE_URL =
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1"
         ? "http://127.0.0.1:8001"
-        : "https://linkedin-post-genertor1-0-1.onrender.com";
+        : "https://linkedin-post-generator-uyxg.onrender.com";
 
 darkbtn.addEventListener("click",function(){
     body.classList.toggle("dark-mode");
