@@ -2,7 +2,9 @@ let darkbtn=document.querySelector(".dark");
 let body=document.querySelector("body");
 let maincontainer=document.querySelector(".maincontainer")
 const API_BASE_URL =
-    window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    window.location.hostname === "" ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
         ? "http://127.0.0.1:8001"
         : "https://linkedin-post-genertor1-0-1.onrender.com";
 
