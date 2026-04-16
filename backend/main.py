@@ -1,6 +1,5 @@
 import json
 import os
-
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
@@ -10,7 +9,6 @@ load_dotenv()
 
 app = FastAPI()
 
-# Enable CORS for all origins (frontend access)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Groq API endpoint
 url = "https://api.groq.com/openai/v1/chat/completions"
 
 @app.post("/generatePost/")
@@ -28,17 +25,10 @@ async def generatePost(request: Request):
     api_key = os.getenv("GROQ_API_KEY")
 
     if not api_key:
-        raise HTTPException(
-            status_code=500,
-            detail="GROQ_API_KEY is not set. Add it to backend/.env before starting the server.",
-        )
+        raise HTTPException(status_code=500, detail="Missing GROQ_API_KEY")
 
-    # Build smart prompt
     prompt = f"""
-    You are a professional LinkedIn content writer. Your task is to write an authentic, engaging, and well-structured LinkedIn post using the details below.
-
-    Dont end with like this sentences(Let me know if you need any adjustments!) please end with the hastags and also dont mention what i didnt give you. you have to mention in the post only whatever the user entered in input those things only you have to mention in the output or post and also dont start with Here's a compelling likedin post that grabs attention like that just start with professional lines. dont mention(As a professional LinkedIn content writer, I've crafted a post that meets your requirements. Here's the output:) like this sentences and i gave a role as input you are not including them 
-    Use the following inputs to generate the post:
+    You are a professional LinkedIn content writer.
 
     Role: {data.get('role', '')}
     Tone: {data.get('tone', '')}
@@ -53,7 +43,7 @@ async def generatePost(request: Request):
     Hashtags: {data.get('hashtags', '')}
     Extras: {data.get('extras', '')}
     """
-    # Prepare request to Groq
+
     payload = json.dumps({
         "messages": [
             {"role": "system", "content": "You are a helpful assistant."},
@@ -68,20 +58,17 @@ async def generatePost(request: Request):
         'Authorization': f'Bearer {api_key}'
     }
 
-    # Send request to Groq API
-    response = requests.post(url, headers=headers, data=payload)
+    response = requests.post(url, headers=headers, data=payload, timeout=30)
 
     try:
         groq_response = response.json()
-        print("Groq Response:", groq_response)  # For debugging
+        print("Groq Response:", groq_response)
     except Exception as e:
-        return {"error": f"Failed to parse JSON: {str(e)}"}
+        raise HTTPException(status_code=500, detail=str(e))
 
-    # Handle missing 'choices'
     if "choices" not in groq_response:
-        return {"error": f"Groq API Error: {groq_response}"}
+        return {"post": "⚠️ Unable to generate post. Please try again."}
 
-    # Extract generated content
     generated_post = groq_response['choices'][0]['message']['content']
-    return {"post": generated_post}
 
+    return {"post": generated_post.strip()}
